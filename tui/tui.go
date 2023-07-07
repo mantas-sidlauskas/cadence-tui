@@ -141,10 +141,10 @@ func (t *TUI) pageDown(g *gocui.Gui, v *gocui.View) error {
 func (t *TUI) pushTableFromSelection(g *gocui.Gui, v *gocui.View) error {
 	y := t.getSelectedY(v)
 	newTable, err := t.current.TableFromHere(y)
-	newTable.SetGui(g)
 	if newTable == nil || err != nil {
 		return err
 	}
+	newTable.SetGui(g)
 
 	return t.pushTable(newTable, g, v)
 
